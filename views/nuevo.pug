@@ -1,0 +1,21 @@
+html    
+    head    
+        title= title
+    body 
+        h1= message 
+        // form(action="/add" method="get" enctype="multipart/form-data")
+        form(action="/addProduct" method="post")
+
+            label(for="upload_file") Nombre:   
+            input#nombre(type="text" name="nombre")
+            br
+
+            label(for="unidades") Unidades: 
+            input#unidades(type="number" name="unidades")
+            br
+
+            label(for="precio") Precio: 
+            input#precio(type="number" name="precio" step="0.01")
+            br
+            button(type="submit") Enviar     
+    
