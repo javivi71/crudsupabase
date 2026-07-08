@@ -18,7 +18,7 @@ router.post("/updateProduct",updateProduct);
 
 // Rutas para eliminar productos 
 router.get("/eliminar",eliminarFormulario);
-router.delete("/deleteProduct",deleteProduct); 
+router.post("/deleteProduct",deleteProduct); 
 
 
 export default router;

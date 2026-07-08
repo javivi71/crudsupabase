@@ -38,20 +38,17 @@ export const actualizarFormulario = async (req,res) => {
 
 export  const updateProduct = async (req,res) => {
    console.log("Actualizar producto");
-   /* const {nombre,unidades,precio} = req.body;
-   if (!nombre){
-      res.send("El nombre es obligatorio");
-   }
+   const {id, nombre,unidades,precio} = req.body;
+   const actualizar = await supabase.from('productos').update({
+         "nombre":nombre,
+         "unidades":Number(unidades),
+         "precio": Number(precio)
+      }).eq("id",id);
 
-   const insertar = await supabase.from('productos').insert({
-    "nombre":nombre,
-    "unidades":Number(unidades),
-    "precio": Number(precio)
-   });
 
    // res.json(insertar);
-   res.redirect("/"); */
-}
+   res.redirect("/");
+} // Fin updateProduct()
 
 
 
@@ -61,17 +58,9 @@ export const eliminarFormulario = async (req,res) => {
 
 export  const deleteProduct = async (req,res) => {
    console.log("Eliminar producto");
-   /* const {nombre,unidades,precio} = req.body;
-   if (!nombre){
-      res.send("El nombre es obligatorio");
-   }
+   const {id} = req.body;
 
-   const insertar = await supabase.from('productos').insert({
-    "nombre":nombre,
-    "unidades":Number(unidades),
-    "precio": Number(precio)
-   });
-
-   // res.json(insertar);
-   res.redirect("/"); */
+  const borrar = await supabase.from('productos').delete().eq("id",id);
+   // res.json(borrar);
+   res.redirect("/"); 
 }
